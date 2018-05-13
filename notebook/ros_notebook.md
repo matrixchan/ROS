@@ -52,7 +52,7 @@ $ echo $ROS_PACKAGE_PATH
   ```
   $ rospack depends1 rospy
   ```
-  ​
+  
 
 ## [Understanding ROS Nodes](http://wiki.ros.org/ROS/Tutorials/UnderstandingNodes)
 
@@ -111,3 +111,76 @@ $ echo $ROS_PACKAGE_PATH
     ```
 
 * ROS Topics
+
+  * Using rqt_graph
+
+    ```
+    $ rosrun rqt_graph rqt_graph	
+    ```
+
+  * rostopic
+
+    ```
+    $ rostopic -h
+    ```
+
+    ```
+    $ rostopic 
+    ```
+
+    `rostopic echo` shows the data published on a topic. 
+
+    Usage:
+
+    ```
+    rostopic echo [topic]
+    ```
+
+    ```
+    $ rostopic echo /turtle1/cmd_vel
+    $ rostopic echo /turtle1/command_velocity
+    ```
+
+  * Using rostopic list
+
+    `rostopic list` returns a list of all topics currently subscribed to and published.
+
+    ```
+    $ rostopic list -h
+    ```
+
+    ```
+    $ rostopic list -v
+    ```
+
+  * Using rostopic pub
+
+    `rostopic pub` publishes data on to a topic currently advertised. 
+
+    Usage:
+
+    ```
+    rostopic pub [topic] [msg_type] [args]
+    ```
+
+    ```
+    $ rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[2.0, 0.0, 0.0]' '[0.0, 0.0, 1.8]'
+    ```
+
+  * Using rostopic hz
+
+    ```
+    $ rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[2.0, 0.0, 0.0]' '[0.0, 0.0, 1.8]'
+    ```
+
+    Let's see how fast the `turtlesim_node` is publishing `/turtle1/pose`: 
+
+    ```
+    $ rostopic hz /turtle1/pose
+    ```
+
+  * Using rqt_plot
+
+    `rqt_plot` displays a scrolling time plot of the data published on topics.
+
+    
