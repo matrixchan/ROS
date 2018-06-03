@@ -140,6 +140,7 @@ $ echo $ROS_PACKAGE_PATH
     $ rostopic echo /turtle1/cmd_vel
     $ rostopic echo /turtle1/command_velocity
     ```
+    
 
   * Using rostopic list
 
@@ -183,4 +184,73 @@ $ echo $ROS_PACKAGE_PATH
 
     `rqt_plot` displays a scrolling time plot of the data published on topics.
 
-    
+
+
+
+## [Understanding ROS Services and Parameters](http://wiki.ros.org/ROS/Tutorials/UnderstandingServicesParams)
+
+* ROS Services
+
+  Services are another way that nodes can communicate with each other. Services allow nodes to send a **request** and receive a **response**.  
+
+* Using  rosservice
+
+  * Usage:
+
+    ```
+    rosservice list         print information about active services
+    rosservice call         call the service with the provided args
+    rosservice type         print service type
+    rosservice find         find services by service type
+    rosservice uri          print service ROSRPC uri
+    ```
+
+  * rosservice list
+
+    ```
+    $ rosservice list
+    ```
+
+  * rosservice type
+
+    Usage: 
+
+    ```
+    rosservice type [service]
+    ```
+
+  * rosservice call
+
+    Usage: 
+
+    ```
+    rosservice call [service] [args]
+    ```
+
+* Using rosparam
+
+  `rosparam` allows you to store and manipulate data on the ROS [Parameter Server](http://wiki.ros.org/Parameter%20Server). 
+
+  Usage: 
+
+  ```
+  rosparam set            set parameter
+  rosparam get            get parameter
+  rosparam load           load parameters from file
+  rosparam dump           dump parameters to file
+  rosparam delete         delete parameter
+  rosparam list           list parameter names
+  ```
+
+  * rosparam list
+
+  * rosparam set and rosparam get
+
+  * rosparam dump and rosparam load
+
+    Usage: 
+
+    ```
+    rosparam dump [file_name] [namespace]
+    rosparam load [file_name] [namespace]
+    ```
